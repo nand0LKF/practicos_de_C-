@@ -1,0 +1,38 @@
+#include <iostream>
+
+// Se hace la Declaración de funciones
+int obtenerNumero();
+int sumar(int num1, int num2);
+void mostrarResultado(int resultado);
+
+int main() {
+    // se piden dos números del usuario
+    int numero1 = obtenerNumero();
+    int numero2 = obtenerNumero();
+
+    // Calcular la suma
+    int resultado = sumar(numero1, numero2);
+
+    // Mostrar el resultado
+    mostrarResultado(resultado);
+
+    return 0;
+}
+
+// se define la función para obtener un número del usuario
+int obtenerNumero() {
+    int numero;
+    std::cout << "Ingrese un numero: ";
+    std::cin >> numero;
+    return numero;
+}
+
+// Definición de la función para sumar dos números
+int sumar(int num1, int num2) {
+    return num1 + num2;
+}
+
+// Definición de la función para mostrar el resultado
+void mostrarResultado(int resultado) {
+    std::cout << "La suma es: " << resultado << std::endl;
+}
