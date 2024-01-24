@@ -1,0 +1,36 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <limits>
+
+int main() {
+    // generación de números aleatorios
+    std::srand(static_cast<unsigned int>(std::time(0)));
+
+    // Número de elementos aleatorios a generar
+    const int num_elementos = 10;
+
+    // Variables para almacenar el número mayor y menor
+    int numero_mayor = std::numeric_limits<int>::min();  // Inicializar con el valor mínimo posible para un int
+    int numero_menor = std::numeric_limits<int>::max();  // Inicializar con el valor máximo posible para un int
+
+    // Generar números aleatorios y encontrar el mayor y menor
+    for (int i = 0; i < num_elementos; ++i) {
+        int numero_aleatorio = std::rand() % 1001; //puse rango de 1000 por que me salian cantidad de numeros en billones
+        std::cout << "Número aleatorio " << i + 1 << ": " << numero_aleatorio << std::endl;
+
+        // ver que número es mayor y menor
+        if (numero_aleatorio > numero_mayor) {
+            numero_mayor = numero_aleatorio;
+        }
+        if (numero_aleatorio < numero_menor) {
+            numero_menor = numero_aleatorio;
+        }
+    }
+
+    // Mostrar el resultado de cual fue mayor y cual fue menor de los numeros aleatorios 
+    std::cout << "\nNúmero mayor aleatorio es : " << numero_mayor << std::endl;
+    std::cout << "Número menor aleatorio es : " << numero_menor << std::endl;
+
+    return 0;
+}
