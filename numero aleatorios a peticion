@@ -1,0 +1,41 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <limits>
+
+int main() {
+    // Semilla para la generación de números aleatorios
+    std::srand(static_cast<unsigned int>(std::time(0)));
+
+    // Solicitar al usuario la cantidad de números aleatorios
+    std::cout << "Ingrese la cantidad de números aleatorios a generar: ";
+    int cantidad_numeros;
+    std::cin >> cantidad_numeros;
+
+    // Variables para almacenar el número mayor y menor
+    int numero_mayor = std::numeric_limits<int>::min();  // Inicializar con el valor mínimo posible para un int
+    int numero_menor = std::numeric_limits<int>::max();  // Inicializar con el valor máximo posible para un int
+
+    // Generar números aleatorios y encontrar el mayor y menor
+    for (int i = 0; i < cantidad_numeros; ++i) {
+        // Generar números aleatorios en el rango [0, 99]
+        int numero_aleatorio = std::rand() % 100;
+
+        // Mostrar el número aleatorio generado
+        std::cout << "Número aleatorio " << i + 1 << ": " << numero_aleatorio << std::endl;
+
+        // Actualizar el número mayor y menor
+        if (numero_aleatorio > numero_mayor) {
+            numero_mayor = numero_aleatorio;
+        }
+        if (numero_aleatorio < numero_menor) {
+            numero_menor = numero_aleatorio;
+        }
+    }
+
+    // Mostrar el resultado
+    std::cout << "\nNúmero mayor: " << numero_mayor << std::endl;
+    std::cout << "Número menor: " << numero_menor << std::endl;
+
+    return 0;
+}
